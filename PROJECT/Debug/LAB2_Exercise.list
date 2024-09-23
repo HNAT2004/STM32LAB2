@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 00000898  00000000  00000000  0002a3e0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001627e  00000000  00000000  0002ac78  2**0
+ 16 .debug_macro  00016288  00000000  00000000  0002ac78  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009361  00000000  00000000  00040ef6  2**0
+ 17 .debug_line   00009377  00000000  00000000  00040f00  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081ee6  00000000  00000000  0004a257  2**0
+ 18 .debug_str    00081ef4  00000000  00000000  0004a277  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc13d  2**0
+ 19 .comment      00000053  00000000  00000000  000cc16b  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002610  00000000  00000000  000cc190  2**2
+ 20 .debug_frame  00002610  00000000  00000000  000cc1c0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -77,8 +77,8 @@ Disassembly of section .text:
  8000148:	08001bcc 	.word	0x08001bcc
 
 0800014c <SetTimer>:
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
+#define INC_TIMER_H_
+
 int extern timer_flag;
 int timer_flag = 0;
 int counter = 0;

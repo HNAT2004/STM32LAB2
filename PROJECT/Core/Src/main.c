@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,21 +56,7 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int extern timer_flag;
-int timer_flag = 0;
-int counter = 0;
-void SetTimer(int x){
-	counter = x;
-	timer_flag = 0;
-}
-void timerRun(){
-	if(counter > 0){
-		counter--;
-		if(counter <= 0){
-			timer_flag = 1;
-		}
-	}
-}
+
 /* USER CODE END 0 */
 
 /**
