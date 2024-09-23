@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000852d  00000000  00000000  00020035  2**0
+ 12 .debug_info   000086b5  00000000  00000000  00020035  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000156b  00000000  00000000  00028562  2**0
+ 13 .debug_abbrev 0000161e  00000000  00000000  000286ea  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000948  00000000  00000000  00029ad0  2**3
+ 14 .debug_aranges 00000960  00000000  00000000  00029d08  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008a0  00000000  00000000  0002a418  2**3
+ 15 .debug_ranges 000008a8  00000000  00000000  0002a668  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016288  00000000  00000000  0002acb8  2**0
+ 16 .debug_macro  00016438  00000000  00000000  0002af10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000939a  00000000  00000000  00040f40  2**0
+ 17 .debug_line   000099cd  00000000  00000000  00041348  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081f03  00000000  00000000  0004a2da  2**0
+ 18 .debug_str    00081f17  00000000  00000000  0004ad15  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc1dd  2**0
+ 19 .comment      00000053  00000000  00000000  000ccc2c  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002630  00000000  00000000  000cc230  2**2
+ 20 .debug_frame  00002640  00000000  00000000  000ccc80  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -77,8 +77,8 @@ Disassembly of section .text:
  8000148:	08001bcc 	.word	0x08001bcc
 
 0800014c <setTimer>:
+#include <timer.h>
 
-int extern timer_flag;
 int timer_flag = 0;
 int counter = 0;
 
@@ -111,7 +111,7 @@ void setTimer(int x){
 	return 0;
 }
 
-void timerRun(){
+void timerRun(void){
  8000174:	b480      	push	{r7}
  8000176:	af00      	add	r7, sp, #0
 	if(counter > 0){
