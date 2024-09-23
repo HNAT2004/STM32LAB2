@@ -12,7 +12,7 @@ int extern timer_flag;
 int timer_flag = 0;
 int counter = 0;
 
-void SetTimer(int x){
+void setTimer(int x){
 	counter = x;
 	timer_flag = 0;
 }
