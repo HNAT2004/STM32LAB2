@@ -127,7 +127,7 @@ int main(void)
 			  break;
 	  }
 		  status = (status == 0 ? 1 : 0);
-		  SetTimer(50);
+		  setTimer(50);
 	  }
 
     /* USER CODE END WHILE */

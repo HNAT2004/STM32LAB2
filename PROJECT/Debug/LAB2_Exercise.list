@@ -76,23 +76,23 @@ Disassembly of section .text:
  8000144:	20000010 	.word	0x20000010
  8000148:	08001bcc 	.word	0x08001bcc
 
-0800014c <SetTimer>:
+0800014c <setTimer>:
 #define INC_TIMER_H_
 
 int extern timer_flag;
 int timer_flag = 0;
 int counter = 0;
-void SetTimer(int x){
+void setTimer(int x){
  800014c:	b480      	push	{r7}
  800014e:	b083      	sub	sp, #12
  8000150:	af00      	add	r7, sp, #0
  8000152:	6078      	str	r0, [r7, #4]
 	counter = x;
- 8000154:	4a05      	ldr	r2, [pc, #20]	; (800016c <SetTimer+0x20>)
+ 8000154:	4a05      	ldr	r2, [pc, #20]	; (800016c <setTimer+0x20>)
  8000156:	687b      	ldr	r3, [r7, #4]
  8000158:	6013      	str	r3, [r2, #0]
 	timer_flag = 0;
- 800015a:	4b05      	ldr	r3, [pc, #20]	; (8000170 <SetTimer+0x24>)
+ 800015a:	4b05      	ldr	r3, [pc, #20]	; (8000170 <setTimer+0x24>)
  800015c:	2200      	movs	r2, #0
  800015e:	601a      	str	r2, [r3, #0]
 }
@@ -309,9 +309,9 @@ int main(void)
  80002a4:	2300      	movne	r3, #0
  80002a6:	b2db      	uxtb	r3, r3
  80002a8:	607b      	str	r3, [r7, #4]
-		  SetTimer(50);
+		  setTimer(50);
  80002aa:	2032      	movs	r0, #50	; 0x32
- 80002ac:	f7ff ff4e 	bl	800014c <SetTimer>
+ 80002ac:	f7ff ff4e 	bl	800014c <setTimer>
 	  if (timer_flag == 1){
  80002b0:	e78d      	b.n	80001ce <main+0x26>
  80002b2:	bf00      	nop
