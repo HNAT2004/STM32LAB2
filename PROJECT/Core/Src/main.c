@@ -49,7 +49,10 @@ TIM_HandleTypeDef htim2;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+<<<<<<< HEAD
 static void MX_TIM2_Init(void);
+=======
+>>>>>>> 9f2dec8ca2810ffcba335ee05d541fe1c409f620
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -87,7 +90,10 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+<<<<<<< HEAD
   MX_TIM2_Init();
+=======
+>>>>>>> 9f2dec8ca2810ffcba335ee05d541fe1c409f620
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
 
@@ -173,12 +179,39 @@ void SystemClock_Config(void)
 }
 
 /**
+<<<<<<< HEAD
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
   */
 static void MX_TIM2_Init(void)
 {
+=======
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, LED_Pin|LED_2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : LED_Pin LED_2_Pin */
+  GPIO_InitStruct.Pin = LED_Pin|LED_2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+}
+
+/* USER CODE BEGIN 4 */
+>>>>>>> 9f2dec8ca2810ffcba335ee05d541fe1c409f620
 
   /* USER CODE BEGIN TIM2_Init 0 */
 
