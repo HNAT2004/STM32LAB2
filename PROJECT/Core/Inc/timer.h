@@ -13,8 +13,6 @@ extern int timer_flag;
 void setTimer(int x);
 int isTimerExpired(void);
 void timerRun(void);
-void display7SEG(int number);
-void update7SEG(int index);
 
 const int MAX_LED = 4;
 int index_led = 0;
