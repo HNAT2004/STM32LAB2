@@ -13,5 +13,7 @@ extern int timer_flag;
 void setTimer(int x);
 int isTimerExpired(void);
 void timerRun(void);
+void display7SEG(int number);
+void update7SEG(int index);
 
 #endif /* INC_TIMER_H_ */
