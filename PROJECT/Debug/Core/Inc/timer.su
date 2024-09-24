@@ -1,5 +1,5 @@
-timer.h:23:6:display7SEG	16	static
-timer.h:120:6:update7SEG	16	static
+timer.h:21:6:display7SEG	16	static
+timer.h:118:6:update7SEG	16	static
 timer.c:16:6:setTimer	16	static
 timer.c:21:5:isTimerExpired	4	static
 timer.c:29:6:timerRun	4	static
