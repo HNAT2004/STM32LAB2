@@ -111,7 +111,7 @@ int main(void)
   {
 	  if (timer_flag == 1){
 		  update7SEG(index_led++);
-		  if (status > 3) status = 0;
+		  if (index_led > 3) index_led = 0;
 		  setTimer(50);
 	  }
     /* USER CODE END WHILE */
