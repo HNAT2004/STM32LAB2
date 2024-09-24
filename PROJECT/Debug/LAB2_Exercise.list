@@ -623,8 +623,8 @@ int main(void)
  8000602:	2300      	movs	r3, #0
  8000604:	607b      	str	r3, [r7, #4]
 
-  HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
- 8000606:	2201      	movs	r2, #1
+  HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
+ 8000606:	2200      	movs	r2, #0
  8000608:	2110      	movs	r1, #16
  800060a:	4819      	ldr	r0, [pc, #100]	; (8000670 <main+0x90>)
  800060c:	f000 fcc6 	bl	8000f9c <HAL_GPIO_WritePin>
