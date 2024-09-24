@@ -9,6 +9,7 @@ Mcu.IP3=TIM2
 Mcu.IPNb=4
 Mcu.Name=STM32F103C6Ux
 Mcu.Package=UFQFPN48
+<<<<<<< HEAD
 Mcu.Pin0=PA4
 Mcu.Pin1=PA5
 Mcu.Pin10=PB4
@@ -26,6 +27,24 @@ Mcu.Pin7=PA8
 Mcu.Pin8=PA9
 Mcu.Pin9=PB3
 Mcu.PinsNb=16
+=======
+Mcu.Pin0=PA5
+Mcu.Pin1=PA6
+Mcu.Pin10=PB5
+Mcu.Pin11=PB6
+Mcu.Pin12=VP_SYS_VS_ND
+Mcu.Pin13=VP_SYS_VS_Systick
+Mcu.Pin14=VP_TIM2_VS_ClockSourceINT
+Mcu.Pin2=PA7
+Mcu.Pin3=PB0
+Mcu.Pin4=PB1
+Mcu.Pin5=PB2
+Mcu.Pin6=PA8
+Mcu.Pin7=PA9
+Mcu.Pin8=PB3
+Mcu.Pin9=PB4
+Mcu.PinsNb=15
+>>>>>>> 9941bbf6ecd672048379992db45154c467b9d62d
 Mcu.ThirdPartyNb=0
 Mcu.UserConstants=
 Mcu.UserName=STM32F103C6Ux
