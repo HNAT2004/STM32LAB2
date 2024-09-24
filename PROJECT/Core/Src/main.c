@@ -106,6 +106,7 @@ int main(void)
   HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
   HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 
+  display7SEG(1);
   while (1)
   {
 	  if (timer_flag == 1){
