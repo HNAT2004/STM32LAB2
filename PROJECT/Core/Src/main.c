@@ -96,8 +96,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  timer_flag = 1;
+  timer_flag_1 = 1;
   int index_led = 0;
+  setTimer2(100);
 
   HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
 
@@ -109,10 +110,14 @@ int main(void)
   display7SEG(1);
   while (1)
   {
-	  if (timer_flag == 1){
+	  if (timer_flag_1 == 1){
 		  update7SEG(index_led++);
 		  if (index_led > 3) index_led = 0;
-		  setTimer(50);
+		  setTimer1(100);
+	  }
+	  if (timer_flag_2 == 1){
+		  setTimer2(100);
+		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	  }
     /* USER CODE END WHILE */
 
