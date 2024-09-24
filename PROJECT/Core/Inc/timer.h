@@ -18,6 +18,10 @@ void update7SEG(int index);
 int timer_flag = 0;
 int counter = 0;
 
+const int MAX_LED = 4;
+int index_led = 0;
+int led_buffer[4] = {1, 2, 3, 4};
+
 void display7SEG(int number){
 	switch(number){
 	case 0:
