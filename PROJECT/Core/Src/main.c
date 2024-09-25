@@ -109,7 +109,7 @@ int main(void)
 		  update7SEG(index_led++);
 		  if (index_led > 3) index_led = 0;
 	  }
-	  setTimer(50);
+	  setTimer0(50);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
