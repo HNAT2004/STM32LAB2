@@ -99,7 +99,10 @@ int main(void)
   setTimer0(1000);
   while (1)
   {
-
+	  if (timer0_flag == 1){
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		  setTimer0(2000);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -230,7 +233,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	timer_run();
+	timerRun();
 }
 /* USER CODE END 4 */
 
