@@ -10,7 +10,7 @@
 
 const int MAX_LED = 4;
 int index_led = 0;
-led_buffer[4] = {1, 2, 3, 4};
+int led_buffer[4] = {1, 2, 3, 4};
 
 int timer_flag_1 = 0;
 
