@@ -99,9 +99,7 @@ int main(void)
   setTimer0(1000);
   while (1)
   {
-	  if (timer0_flag == 1){
-		  HAL_GPIO_TogglePin()
-	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
