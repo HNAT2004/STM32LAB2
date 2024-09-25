@@ -16,7 +16,7 @@ extern int second;
 void setTimer0(int x);
 
 int isTimerExpired(void);
-void timerRun(void);
+void timer_run(void);
 void display7SEG(int number);
 void update7SEG(int index);
 void updateClockBuffer(void);

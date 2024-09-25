@@ -29,7 +29,7 @@ void setTimer0(int duration){
 //	return 0;
 //}
 
-void timerRun(void){
+void timer_run(void){
 	if(timer0_counter > 0){
 		timer0_counter--;
 		if(timer0_counter <= 0){
