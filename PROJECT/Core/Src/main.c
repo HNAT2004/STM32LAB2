@@ -96,13 +96,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(100);
+  setTimer0(10);
   updateClockBuffer();
   while (1)
   {
 	  if (timer0_flag == 1){
 		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		  setTimer0(100);
+		  setTimer0(1000);
 		  second++;
 	  	  if (second >= 60){
 	  		  second = 0;

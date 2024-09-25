@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Inc/timer.c 
+../Core/Inc/software_timer.c 
 
 OBJS += \
-./Core/Inc/timer.o 
+./Core/Inc/software_timer.o 
 
 C_DEPS += \
-./Core/Inc/timer.d 
+./Core/Inc/software_timer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
