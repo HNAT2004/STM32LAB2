@@ -10,22 +10,17 @@
 
 const int MAX_LED = 4;
 int index_led = 0;
-int led_buffer[4] = {1, 2, 3, 4};
+led_buffer[4] = {1, 2, 3, 4};
 
 int timer_flag_1 = 0;
-int timer_flag_2 = 0;
+
 int counter_1 = 0;
-int counter_2 = 0;
 
 void setTimer1(int x){
 	counter_1 = x;
 	timer_flag_1 = 0;
 }
 
-void setTimer2(int x){
-	counter_2 = x;
-	timer_flag_2 = 0;
-}
 
 //int isTimerExpired(void){
 //	if (timer_flag == 1){
@@ -40,12 +35,6 @@ void timerRun(void){
 		counter_1--;
 		if(counter_1 <= 0){
 			timer_flag_1 = 1;
-		}
-	}
-	if(counter_2 > 0){
-		counter_2--;
-		if(counter_2 <= 0){
-			timer_flag_2 = 1;
 		}
 	}
 }
@@ -180,4 +169,25 @@ void update7SEG(int index){
 	default:
 		break;
 	}
+}
+
+void updateClockBuffer(void){
+	if (hour < 10){
+		led_buffer[0] = 0;
+		led_buffer[1] = hour;
+	}
+	if (hour >= 10){
+		led_buffer[0] = hour / 10;
+		led_buffer[1] = hour % 10;
+	}
+	if (minute < 10){
+		led_buffer[2] = 0;
+		led_buffer[3] = minute;
+	}
+	if (minute >= 10){
+		led_buffer[2] = minute / 10;
+		led_buffer[3] = minute % 10;
+	}
+	update7SEG(index_led++);
+	if (index_led > 3) index_led = 0;
 }
