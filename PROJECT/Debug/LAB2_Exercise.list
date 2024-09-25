@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  0001645c  00000000  00000000  0002b118  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009a7c  00000000  00000000  00041574  2**0
+ 17 .debug_line   00009a7e  00000000  00000000  00041574  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00082001  00000000  00000000  0004aff0  2**0
+ 18 .debug_str    00082002  00000000  00000000  0004aff2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000ccff1  2**0
+ 19 .comment      00000053  00000000  00000000  000ccff4  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002684  00000000  00000000  000cd044  2**2
+ 20 .debug_frame  00002684  00000000  00000000  000cd048  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -109,33 +109,33 @@ void setTimer0(int duration){
  8000178:	20000030 	.word	0x20000030
  800017c:	2000002c 	.word	0x2000002c
 
-08000180 <timerRun>:
+08000180 <timer_run>:
 //		return 1;
 //	}
 //	return 0;
 //}
 
-void timerRun(void){
+void timer_run(void){
  8000180:	b480      	push	{r7}
  8000182:	af00      	add	r7, sp, #0
 	if(timer0_counter > 0){
- 8000184:	4b09      	ldr	r3, [pc, #36]	; (80001ac <timerRun+0x2c>)
+ 8000184:	4b09      	ldr	r3, [pc, #36]	; (80001ac <timer_run+0x2c>)
  8000186:	681b      	ldr	r3, [r3, #0]
  8000188:	2b00      	cmp	r3, #0
- 800018a:	dd0b      	ble.n	80001a4 <timerRun+0x24>
+ 800018a:	dd0b      	ble.n	80001a4 <timer_run+0x24>
 		timer0_counter--;
- 800018c:	4b07      	ldr	r3, [pc, #28]	; (80001ac <timerRun+0x2c>)
+ 800018c:	4b07      	ldr	r3, [pc, #28]	; (80001ac <timer_run+0x2c>)
  800018e:	681b      	ldr	r3, [r3, #0]
  8000190:	3b01      	subs	r3, #1
- 8000192:	4a06      	ldr	r2, [pc, #24]	; (80001ac <timerRun+0x2c>)
+ 8000192:	4a06      	ldr	r2, [pc, #24]	; (80001ac <timer_run+0x2c>)
  8000194:	6013      	str	r3, [r2, #0]
 		if(timer0_counter <= 0){
- 8000196:	4b05      	ldr	r3, [pc, #20]	; (80001ac <timerRun+0x2c>)
+ 8000196:	4b05      	ldr	r3, [pc, #20]	; (80001ac <timer_run+0x2c>)
  8000198:	681b      	ldr	r3, [r3, #0]
  800019a:	2b00      	cmp	r3, #0
- 800019c:	dc02      	bgt.n	80001a4 <timerRun+0x24>
+ 800019c:	dc02      	bgt.n	80001a4 <timer_run+0x24>
 			timer0_flag = 1;
- 800019e:	4b04      	ldr	r3, [pc, #16]	; (80001b0 <timerRun+0x30>)
+ 800019e:	4b04      	ldr	r3, [pc, #16]	; (80001b0 <timer_run+0x30>)
  80001a0:	2201      	movs	r2, #1
  80001a2:	601a      	str	r2, [r3, #0]
 		}
@@ -527,8 +527,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003b6:	b082      	sub	sp, #8
  80003b8:	af00      	add	r7, sp, #0
  80003ba:	6078      	str	r0, [r7, #4]
-	timerRun();
- 80003bc:	f7ff fee0 	bl	8000180 <timerRun>
+	timer_run();
+ 80003bc:	f7ff fee0 	bl	8000180 <timer_run>
 }
  80003c0:	bf00      	nop
  80003c2:	3708      	adds	r7, #8
