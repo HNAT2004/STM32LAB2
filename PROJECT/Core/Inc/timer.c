@@ -12,15 +12,14 @@ const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = {1, 2, 3, 4};
 
-int timer_flag_1 = 0;
+int timer0_flag = 0;
+int timer0_counter = 0;
+int TIMER_CYCLE = 10;
 
-int counter_1 = 0;
-
-void setTimer1(int x){
-	counter_1 = x;
-	timer_flag_1 = 0;
+void setTimer0(int duration){
+	timer0_counter = duration / TIMER_CYCLE;
+	timer0_flag = 0;
 }
-
 
 //int isTimerExpired(void){
 //	if (timer_flag == 1){
@@ -31,10 +30,10 @@ void setTimer1(int x){
 //}
 
 void timerRun(void){
-	if(counter_1 > 0){
-		counter_1--;
-		if(counter_1 <= 0){
-			timer_flag_1 = 1;
+	if(timer0_counter > 0){
+		timer0_counter--;
+		if(timer0_counter <= 0){
+			timer0_flag = 1;
 		}
 	}
 }
