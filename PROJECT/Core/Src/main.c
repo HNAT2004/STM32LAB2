@@ -43,7 +43,6 @@
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-int hour = 15, minute = 8, second = 50;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,28 +95,21 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(1000);
-  updateClockBuffer();
+  int index_led = 0;
+  int timer0_flag = 1;
+
+  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+  display7SEG(1);
   while (1)
   {
 	  if (timer0_flag == 1){
-		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-		  setTimer0(1000);
-		  second++;
-	  	  if (second >= 60){
-	  		  second = 0;
-	  		  minute++;
-	  	  }
-	  	  if(minute >= 60){
-	  		  minute = 0;
-	  		  hour++;
-	  	  }
-	  	  if(hour >=24){
-	  		  hour = 0;
-	  	  }
-	  	  updateClockBuffer();
+		  update7SEG(index_led++);
+		  if (index_led > 3) index_led = 0;
 	  }
+	  setTimer(50);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

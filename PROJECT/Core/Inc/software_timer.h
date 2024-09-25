@@ -13,7 +13,7 @@ extern int hour;
 extern int minute;
 extern int second;
 
-void setTimer0(int x);
+void setTimer0(int duration);
 
 int isTimerExpired(void);
 void timer_run(void);
