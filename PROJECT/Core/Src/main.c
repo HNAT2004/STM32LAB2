@@ -97,6 +97,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int hour = 15, minute = 8, second = 50;
+  display7SEG(hour);
+  display7SEG(minute);
 
   while (1)
   {
