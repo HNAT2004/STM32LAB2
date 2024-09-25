@@ -14,7 +14,7 @@ extern int minute;
 extern int second;
 
 void setTimer1(int x);
-void setTimer2(int x);
+
 int isTimerExpired(void);
 void timerRun(void);
 void display7SEG(int number);
