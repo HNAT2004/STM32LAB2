@@ -1,12 +1,12 @@
 /*
- * timer.c
+ * software_timer.c
  *
  *  Created on: Sep 23, 2024
  *      Author: ADMIN
  */
 
-#include "timer.h"
 #include "main.h"
+#include "software_timer.h"
 
 const int MAX_LED = 4;
 int index_led = 0;
