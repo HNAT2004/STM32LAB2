@@ -194,4 +194,6 @@ void updateClockBuffer(void){
 	if (index_led > 3) index_led = 0;
 }
 
+void updateLEDMatrix(int index){
 
+}
