@@ -344,3 +344,56 @@ void updateLEDMatrix(int index){
 		break;
 	}
 }
+
+void DeactivateColumn(uint8_t col) {
+    // Giả sử bạn sử dụng các chân GPIOA cho các cột
+    GPIOA->ODR &= ~(1 << col);
+}
+void displayA(int counter){
+	if(counter == 0){
+		InitMatrix();
+	}
+	if(counter == 1){
+		InitMatrix();
+		DeactivateColumn(matrix_buffer[counter]);
+	}
+	if(counter == 2){
+		InitMatrix();
+		DeactivateColumn(matrix_buffer[counter]);
+	}
+	if(counter == 3){
+		InitMatrix();
+		DeactivateColumn(matrix_buffer[counter]);
+		HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, GPIO_PIN_SET);
+		}
+	if(counter == 4){
+		InitMatrix();
+		DeactivateColumn(matrix_buffer[counter]);
+		HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, GPIO_PIN_SET);
+			}
+	if(counter == 5){
+		InitMatrix();
+		DeactivateColumn(matrix_buffer[counter]);
+	}
+	if(counter == 6){
+		InitMatrix();
+		DeactivateColumn(matrix_buffer[counter]);
+	}
+	if(counter == 7){
+		InitMatrix();
+	}
+}
