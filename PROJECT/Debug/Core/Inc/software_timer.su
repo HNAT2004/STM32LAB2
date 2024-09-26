@@ -1,5 +1,0 @@
-software_timer.c:19:6:setTimer0	16	static
-software_timer.c:32:6:timer_run	4	static
-software_timer.c:41:6:display7SEG	16	static
-software_timer.c:138:6:update7SEG	16	static
-software_timer.c:173:6:updateClockBuffer	8	static
