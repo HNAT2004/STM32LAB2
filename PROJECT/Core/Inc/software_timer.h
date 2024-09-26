@@ -9,15 +9,13 @@
 #define INC_SOFTWARE_TIMER_H_
 
 extern int timer0_flag;
-extern int hour;
-extern int minute;
-extern int second;
 
 void setTimer0(int x);
-
 int isTimerExpired(void);
 void timer_run(void);
 void display7SEG(int number);
 void update7SEG(int index);
 void updateClockBuffer(void);
+void updateLEDMatrix(int index);
+
 #endif /* INC_SOFTWARE_TIMER_H_ */
