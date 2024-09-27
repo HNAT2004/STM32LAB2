@@ -133,7 +133,7 @@ int main(void)
 			  counter = 0;
 			  flag = 0;
 		  }
-  		setTimer0(100));
+  		setTimer0(100);
 	  }
 	  HAL_Delay(1);
 
