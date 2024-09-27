@@ -97,7 +97,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   int counter = 0;
   int shift = 0;
-
+  initMatrix();
+  setTimer0(100);
   while (1)
   {
 	  int signal = (counter - shift) >= 0 ? counter - shift : shift - counter;
