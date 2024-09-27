@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020014  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008894  00000000  00000000  0002003d  2**0
+ 12 .debug_info   00008891  00000000  00000000  0002003d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000016b8  00000000  00000000  000288d1  2**0
+ 13 .debug_abbrev 0000169c  00000000  00000000  000288ce  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000980  00000000  00000000  00029f90  2**3
+ 14 .debug_aranges 00000980  00000000  00000000  00029f70  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008c8  00000000  00000000  0002a910  2**3
+ 15 .debug_ranges 000008c8  00000000  00000000  0002a8f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001651c  00000000  00000000  0002b1d8  2**0
+ 16 .debug_macro  0001651c  00000000  00000000  0002b1b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009bce  00000000  00000000  000416f4  2**0
+ 17 .debug_line   00009bcc  00000000  00000000  000416d4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000822e6  00000000  00000000  0004b2c2  2**0
+ 18 .debug_str    000822e8  00000000  00000000  0004b2a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cd5a8  2**0
+ 19 .comment      00000053  00000000  00000000  000cd588  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026d8  00000000  00000000  000cd5fc  2**2
+ 20 .debug_frame  000026d8  00000000  00000000  000cd5dc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -530,13 +530,13 @@ void displayA(int index) {
  800052c:	bf00      	nop
     }
 
-    uint8_t row_data = matrix_buffer[index];
+    uint8_t row_signal = matrix_buffer[index];
  800052e:	4a32      	ldr	r2, [pc, #200]	; (80005f8 <displayA+0x478>)
  8000530:	687b      	ldr	r3, [r7, #4]
  8000532:	4413      	add	r3, r2
  8000534:	781b      	ldrb	r3, [r3, #0]
  8000536:	73fb      	strb	r3, [r7, #15]
-    HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_data & 0x01) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_signal & 0x01) ? SET : RESET);
  8000538:	7bfb      	ldrb	r3, [r7, #15]
  800053a:	f003 0301 	and.w	r3, r3, #1
  800053e:	b2db      	uxtb	r3, r3
@@ -544,7 +544,7 @@ void displayA(int index) {
  8000542:	2104      	movs	r1, #4
  8000544:	482d      	ldr	r0, [pc, #180]	; (80005fc <displayA+0x47c>)
  8000546:	f000 fd2d 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_data & 0x02) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_signal & 0x02) ? SET : RESET);
  800054a:	7bfb      	ldrb	r3, [r7, #15]
  800054c:	105b      	asrs	r3, r3, #1
  800054e:	b2db      	uxtb	r3, r3
@@ -554,7 +554,7 @@ void displayA(int index) {
  8000558:	2108      	movs	r1, #8
  800055a:	4828      	ldr	r0, [pc, #160]	; (80005fc <displayA+0x47c>)
  800055c:	f000 fd22 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, (row_data & 0x04) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, (row_signal & 0x04) ? SET : RESET);
  8000560:	7bfb      	ldrb	r3, [r7, #15]
  8000562:	109b      	asrs	r3, r3, #2
  8000564:	b2db      	uxtb	r3, r3
@@ -564,7 +564,7 @@ void displayA(int index) {
  800056e:	f44f 6180 	mov.w	r1, #1024	; 0x400
  8000572:	4822      	ldr	r0, [pc, #136]	; (80005fc <displayA+0x47c>)
  8000574:	f000 fd16 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, (row_data & 0x08) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, (row_signal & 0x08) ? SET : RESET);
  8000578:	7bfb      	ldrb	r3, [r7, #15]
  800057a:	10db      	asrs	r3, r3, #3
  800057c:	b2db      	uxtb	r3, r3
@@ -574,7 +574,7 @@ void displayA(int index) {
  8000586:	f44f 6100 	mov.w	r1, #2048	; 0x800
  800058a:	481c      	ldr	r0, [pc, #112]	; (80005fc <displayA+0x47c>)
  800058c:	f000 fd0a 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, (row_data & 0x10) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, (row_signal & 0x10) ? SET : RESET);
  8000590:	7bfb      	ldrb	r3, [r7, #15]
  8000592:	111b      	asrs	r3, r3, #4
  8000594:	b2db      	uxtb	r3, r3
@@ -584,7 +584,7 @@ void displayA(int index) {
  800059e:	f44f 5180 	mov.w	r1, #4096	; 0x1000
  80005a2:	4816      	ldr	r0, [pc, #88]	; (80005fc <displayA+0x47c>)
  80005a4:	f000 fcfe 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, (row_data & 0x20) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, (row_signal & 0x20) ? SET : RESET);
  80005a8:	7bfb      	ldrb	r3, [r7, #15]
  80005aa:	115b      	asrs	r3, r3, #5
  80005ac:	b2db      	uxtb	r3, r3
@@ -594,7 +594,7 @@ void displayA(int index) {
  80005b6:	f44f 5100 	mov.w	r1, #8192	; 0x2000
  80005ba:	4810      	ldr	r0, [pc, #64]	; (80005fc <displayA+0x47c>)
  80005bc:	f000 fcf2 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, (row_data & 0x40) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, (row_signal & 0x40) ? SET : RESET);
  80005c0:	7bfb      	ldrb	r3, [r7, #15]
  80005c2:	119b      	asrs	r3, r3, #6
  80005c4:	b2db      	uxtb	r3, r3
@@ -604,7 +604,7 @@ void displayA(int index) {
  80005ce:	f44f 4180 	mov.w	r1, #16384	; 0x4000
  80005d2:	480a      	ldr	r0, [pc, #40]	; (80005fc <displayA+0x47c>)
  80005d4:	f000 fce6 	bl	8000fa4 <HAL_GPIO_WritePin>
-    HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_data & 0x80) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_signal & 0x80) ? SET : RESET);
  80005d8:	7bfb      	ldrb	r3, [r7, #15]
  80005da:	09db      	lsrs	r3, r3, #7
  80005dc:	b2db      	uxtb	r3, r3
@@ -659,11 +659,11 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
  8000616:	480a      	ldr	r0, [pc, #40]	; (8000640 <main+0x40>)
  8000618:	f001 f908 	bl	800182c <HAL_TIM_Base_Start_IT>
-//  HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, RESET);
-//  HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, RESET);
-//  HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, RESET);
-//  HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, RESET);
-//  HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   int counter = 0;
  800061c:	2300      	movs	r3, #0
  800061e:	607b      	str	r3, [r7, #4]
