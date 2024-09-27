@@ -95,7 +95,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int flag = 0;
   int counter = 0;
   setTimer0(100);
   while (1)
@@ -103,7 +102,6 @@ int main(void)
 	  displayA(counter);
 	  counter++;
 	  if(counter > 7) counter = 0;
-	  counter = abs(-4);
 	  HAL_Delay(1);
     /* USER CODE END WHILE */
 
