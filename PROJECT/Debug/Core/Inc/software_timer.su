@@ -3,5 +3,5 @@ software_timer.c:31:6:timer_run	4	static
 software_timer.c:40:6:display7SEG	16	static
 software_timer.c:137:6:update7SEG	16	static
 software_timer.c:176:6:updateLEDMatrix	16	static
-software_timer.c:327:6:initMatrix	8	static
-software_timer.c:346:6:displayA	24	static
+software_timer.c:216:6:displayA	24	static
+software_timer.c:229:6:animation	24	static

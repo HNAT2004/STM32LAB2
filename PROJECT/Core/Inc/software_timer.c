@@ -226,12 +226,12 @@ void displayA(int index) {
     HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_signal & 0x80) ? SET : RESET);
 }
 
-void animation(){
-	uint8_t buffer[8];
-	for (int shift = 0; shift < 8; shift++){
-		for (int i = 0; i < 8; i++){
-			buffer[i] = matrix_buffer[(i + shift) % 8];
-		}
-		updateLEDMatrix(buffer);
-	}
-}
+//void animation(){
+//	uint8_t buffer[8];
+//	for (int shift = 0; shift < 8; shift++){
+//		for (int i = 0; i < 8; i++){
+//			buffer[i] = matrix_buffer[(i + shift) % 8];
+//		}
+//		updateLEDMatrix(buffer);
+//	}
+//}
