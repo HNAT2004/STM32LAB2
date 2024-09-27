@@ -478,8 +478,8 @@ int main(void)
  8000440:	687b      	ldr	r3, [r7, #4]
  8000442:	3301      	adds	r3, #1
  8000444:	607b      	str	r3, [r7, #4]
-  	HAL_Delay(100);
- 8000446:	2064      	movs	r0, #100	; 0x64
+  	HAL_Delay(1);
+ 8000446:	2001      	movs	r0, #1
  8000448:	f000 fa0c 	bl	8000864 <HAL_Delay>
   	displayA(counter);
  800044c:	e7f0      	b.n	8000430 <main+0xdc>
