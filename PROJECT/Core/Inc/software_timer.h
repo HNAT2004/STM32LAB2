@@ -17,7 +17,7 @@ void display7SEG(int number);
 void update7SEG(int index);
 void updateClockBuffer(void);
 void updateLEDMatrix(int index);
-void InitMatrix(void);
+void initMatrix(void);
 void displayA(int counter);
 
 #endif /* INC_SOFTWARE_TIMER_H_ */
