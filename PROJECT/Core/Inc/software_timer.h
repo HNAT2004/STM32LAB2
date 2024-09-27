@@ -19,5 +19,6 @@ void updateClockBuffer(void);
 void updateLEDMatrix(int index);
 void initMatrix(void);
 void displayA(int index);
+void animation_of_A(void);
 
 #endif /* INC_SOFTWARE_TIMER_H_ */
