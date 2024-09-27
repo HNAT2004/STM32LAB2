@@ -418,8 +418,8 @@ int main(void)
  80003a0:	dd01      	ble.n	80003a6 <main+0x36>
  80003a2:	2300      	movs	r3, #0
  80003a4:	607b      	str	r3, [r7, #4]
-  	HAL_Delay(1);
- 80003a6:	2001      	movs	r0, #1
+  	HAL_Delay(100);
+ 80003a6:	2064      	movs	r0, #100	; 0x64
  80003a8:	f000 fa08 	bl	80007bc <HAL_Delay>
   	displayA(counter);
  80003ac:	e7f0      	b.n	8000390 <main+0x20>
