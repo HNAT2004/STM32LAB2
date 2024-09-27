@@ -100,7 +100,7 @@ int main(void)
 
   while (1)
   {
-	  signal = (counter - shift) >= 0 ? counter - shift : shift - counter;
+	  int signal = (counter - shift) >= 0 ? counter - shift : shift - counter;
 	  displayA(signal);
 	  counter++;
 	  if(counter > 7){
