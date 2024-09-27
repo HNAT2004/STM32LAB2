@@ -378,13 +378,13 @@ void displayA(int index) {
 
     // Cập nhật các cột dựa trên mẫu chữ "A" với logic đảo ngược
     uint8_t row_data = matrix_buffer[index];
-    HAL_GPIO_WritePin(COL0_GPIO_Port, COL0_Pin, (row_data & 0x01) ? SET : RESET);
-    HAL_GPIO_WritePin(COL1_GPIO_Port, COL1_Pin, (row_data & 0x02) ? SET : RESET);
-    HAL_GPIO_WritePin(COL2_GPIO_Port, COL2_Pin, (row_data & 0x04) ? SET : RESET);
-    HAL_GPIO_WritePin(COL3_GPIO_Port, COL3_Pin, (row_data & 0x08) ? SET : RESET);
-    HAL_GPIO_WritePin(COL4_GPIO_Port, COL4_Pin, (row_data & 0x10) ? SET : RESET);
-    HAL_GPIO_WritePin(COL5_GPIO_Port, COL5_Pin, (row_data & 0x20) ? SET : RESET);
-    HAL_GPIO_WritePin(COL6_GPIO_Port, COL6_Pin, (row_data & 0x40) ? SET : RESET);
-    HAL_GPIO_WritePin(COL7_GPIO_Port, COL7_Pin, (row_data & 0x80) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_data & 0x01) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_data & 0x02) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, (row_data & 0x04) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, (row_data & 0x08) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, (row_data & 0x10) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, (row_data & 0x20) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, (row_data & 0x40) ? SET : RESET);
+    HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_data & 0x80) ? SET : RESET);
 }
 
