@@ -18,6 +18,6 @@ void update7SEG(int index);
 void updateClockBuffer(void);
 void updateLEDMatrix(int index);
 void initMatrix(void);
-void displayA(int counter);
+void displayA(int index);
 
 #endif /* INC_SOFTWARE_TIMER_H_ */
