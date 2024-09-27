@@ -226,9 +226,9 @@ void displayA(int index) {
     HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_signal & 0x80) ? SET : RESET);
 }
 
-void animation_of_A() {
-    for (int shift = 0; shift < MAX_LED_MATRIX; shift++) {
-        for (int i = 0; i < MAX_LED_MATRIX; i++) {
+void animation_of_A(){
+    for (int shift = 0; shift < MAX_LED_MATRIX; shift++){
+        for (int i = 0; i < MAX_LED_MATRIX; i++){
             int index = (i + shift) % MAX_LED_MATRIX;
             displayA(index);
             HAL_Delay(100);
