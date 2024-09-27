@@ -238,7 +238,7 @@ void animation_of_A(){
 	    HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, (row_signal & 0x20) ? SET : RESET);
 	    HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, (row_signal & 0x40) ? SET : RESET);
 	    HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_signal & 0x80) ? SET : RESET);
-	    HAL_Delay(500);
+	    HAL_Delay(100);
 	}
 }
 
