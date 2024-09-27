@@ -258,16 +258,8 @@ void displayA(int index) {
 }
 
 void animation_of_A(){
-	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
-	HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, SET);
-	HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, SET);
-	HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, SET);
-	HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, SET);
-	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
-	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
-	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
 	for (int i = 0; i < MAX_LED_MATRIX; i++){
-		updateLEDMatrix_2(i);
+		updateLEDMatrix(i);
 	    uint8_t row_signal = matrix_buffer[i];
 	    HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_signal & 0x01) ? SET : RESET);
 	    HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_signal & 0x02) ? SET : RESET);
