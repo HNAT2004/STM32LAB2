@@ -1,7 +1,0 @@
-software_timer.c:18:6:setTimer0	16	static
-software_timer.c:31:6:timer_run	4	static
-software_timer.c:40:6:display7SEG	16	static
-software_timer.c:137:6:update7SEG	16	static
-software_timer.c:176:6:updateLEDMatrix	16	static
-software_timer.c:216:6:displayA	24	static
-software_timer.c:229:6:animation_of_A	24	static

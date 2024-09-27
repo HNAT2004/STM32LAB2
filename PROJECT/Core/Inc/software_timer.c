@@ -236,7 +236,7 @@ void animation_of_A(){
 	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, RESET);
 	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
 	for (int i = 0; i < MAX_LED_MATRIX; i++){
-	    uint8_t row_signal = matrix_buffer[index];
+	    uint8_t row_signal = matrix_buffer[i];
 	    HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_signal & 0x01) ? SET : RESET);
 	    HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_signal & 0x02) ? SET : RESET);
 	    HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, (row_signal & 0x04) ? SET : RESET);
