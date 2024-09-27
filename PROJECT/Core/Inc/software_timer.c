@@ -324,7 +324,7 @@ void updateLEDMatrix(int index){
 	}
 }
 
-void initMatrix(void){
+void InitMatrix(void){
 	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, SET);
 	HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, SET);
 	HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, SET);
