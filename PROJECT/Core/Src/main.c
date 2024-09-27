@@ -99,7 +99,7 @@ int main(void)
   int counter2 = 3;
   int counter3 = 4;
   int flag = 0;
-  setTimer(100);
+  setTimer0(100);
   while (1)
   {
 	  if (timer0_flag == 1){
@@ -133,7 +133,7 @@ int main(void)
 			  counter = 0;
 			  flag = 0;
 		  }
-  		setTimer1(100);
+  		setTimer0(100));
 	  }
 	  HAL_Delay(1);
 
