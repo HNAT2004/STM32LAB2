@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020014  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000088d1  00000000  00000000  0002003d  2**0
+ 12 .debug_info   000088b4  00000000  00000000  0002003d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000016a1  00000000  00000000  0002890e  2**0
+ 13 .debug_abbrev 0000166d  00000000  00000000  000288f1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000980  00000000  00000000  00029fb0  2**3
+ 14 .debug_aranges 00000980  00000000  00000000  00029f60  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008c8  00000000  00000000  0002a930  2**3
+ 15 .debug_ranges 000008c8  00000000  00000000  0002a8e0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001651c  00000000  00000000  0002b1f8  2**0
+ 16 .debug_macro  0001651c  00000000  00000000  0002b1a8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009b27  00000000  00000000  00041714  2**0
+ 17 .debug_line   00009b20  00000000  00000000  000416c4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000822e6  00000000  00000000  0004b23b  2**0
+ 18 .debug_str    000822e6  00000000  00000000  0004b1e4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cd521  2**0
+ 19 .comment      00000053  00000000  00000000  000cd4ca  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026d4  00000000  00000000  000cd574  2**2
+ 20 .debug_frame  000026d4  00000000  00000000  000cd520  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -455,7 +455,6 @@ int main(void)
   {
 	  animation_of_A();
  80003e2:	f7ff ffc5 	bl	8000370 <animation_of_A>
-  {
  80003e6:	e7fc      	b.n	80003e2 <main+0x1a>
  80003e8:	20000038 	.word	0x20000038
 
