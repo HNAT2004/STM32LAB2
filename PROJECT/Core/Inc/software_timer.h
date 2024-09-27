@@ -17,6 +17,7 @@ void display7SEG(int number);
 void update7SEG(int index);
 void updateClockBuffer(void);
 void updateLEDMatrix(int index);
+void updateLEDMatrix_2(int index);
 void initMatrix(void);
 void displayA(int index);
 void animation_of_A(void);
