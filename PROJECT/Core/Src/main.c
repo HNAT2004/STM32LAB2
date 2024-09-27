@@ -98,12 +98,7 @@ int main(void)
   int counter = 0;
   while (1)
   {
-	  displayA(counter);
-	  counter++;
-	  if(counter > 7){
-		  counter = 0;
-	  }
-	  HAL_Delay(1);
+	  animation_of_A();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
