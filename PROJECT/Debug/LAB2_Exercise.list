@@ -752,21 +752,22 @@ int main(void)
   	displayA(counter);
  80006dc:	6878      	ldr	r0, [r7, #4]
  80006de:	f7ff fd4f 	bl	8000180 <displayA>
-  	if(counter > 7) counter = 0;
- 80006e2:	687b      	ldr	r3, [r7, #4]
- 80006e4:	2b07      	cmp	r3, #7
- 80006e6:	dd01      	ble.n	80006ec <main+0xec>
- 80006e8:	2300      	movs	r3, #0
- 80006ea:	607b      	str	r3, [r7, #4]
   	counter++;
- 80006ec:	687b      	ldr	r3, [r7, #4]
- 80006ee:	3301      	adds	r3, #1
+ 80006e2:	687b      	ldr	r3, [r7, #4]
+ 80006e4:	3301      	adds	r3, #1
+ 80006e6:	607b      	str	r3, [r7, #4]
+  	if(counter > 7) counter = 0;
+ 80006e8:	687b      	ldr	r3, [r7, #4]
+ 80006ea:	2b07      	cmp	r3, #7
+ 80006ec:	dd01      	ble.n	80006f2 <main+0xf2>
+ 80006ee:	2300      	movs	r3, #0
  80006f0:	607b      	str	r3, [r7, #4]
-  	HAL_Delay(1000);
- 80006f2:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 80006f6:	f000 fa0b 	bl	8000b10 <HAL_Delay>
+  	HAL_Delay(100);
+ 80006f2:	2064      	movs	r0, #100	; 0x64
+ 80006f4:	f000 fa0c 	bl	8000b10 <HAL_Delay>
   	displayA(counter);
- 80006fa:	e7ef      	b.n	80006dc <main+0xdc>
+ 80006f8:	e7f0      	b.n	80006dc <main+0xdc>
+ 80006fa:	bf00      	nop
  80006fc:	20000038 	.word	0x20000038
  8000700:	40010800 	.word	0x40010800
  8000704:	40010c00 	.word	0x40010c00

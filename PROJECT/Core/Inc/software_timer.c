@@ -172,7 +172,7 @@ void update7SEG(int index){
 
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {0xe7,0xc3,0xbd,0xbd,0x81,0xbd,0xbd,0xbd};
+uint8_t matrix_buffer[8] = {0xE7,0xDB,0xBD,0xBD,0x81,0xBD,0xBD,0xBD};
 
 void updateLEDMatrix(int index){
 	switch(index){
@@ -325,7 +325,7 @@ void updateLEDMatrix(int index){
 	}
 }
 
-void InitMatrix(void){
+void initMatrix(void){
 	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, SET);
 	HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, SET);
 	HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, SET);
