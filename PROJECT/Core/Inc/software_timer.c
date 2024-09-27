@@ -9,9 +9,6 @@
 #include "software_timer.h"
 
 const int MAX_LED = 4;
-const int MAX_LED_MATRIX = 8;
-int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {2,3,10,11,12,13,14,15};
 int index_led = 0;
 int led_buffer[4] = {1, 2, 3, 4};
 
@@ -172,6 +169,11 @@ void update7SEG(int index){
 		break;
 	}
 }
+
+const int MAX_LED_MATRIX = 8;
+int index_led_matrix = 0;
+uint8_t matrix_buffer[8] = {0xFF00, 0xC000, 0xB700, 0x7700, 0x7700, 0xB700, 0xC000, 0xFF00};
+uint8_t column[8] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
 
 void updateLEDMatrix(int index){
 	switch(index){
@@ -343,56 +345,10 @@ void InitMatrix(void){
 	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
 }
 
-void DeactivateColumn(uint8_t col) {
-     GPIOA->ODR &= ~(1 << col);
- }
-void displayA(int counter){
-		if(counter == 0){
-			InitMatrix();
-		}
-		if(counter == 1){
-			InitMatrix();
-			DeactivateColumn(matrix_buffer[counter]);
+void columnSweeper(uint8_t column){
+	GPIOA->ODR &= ~(1 << col);
+}
 
-		}
-		if(counter == 2){
-			InitMatrix();
-			DeactivateColumn(matrix_buffer[counter]);
-		}
-		if(counter == 3){
-			InitMatrix();
-			DeactivateColumn(matrix_buffer[counter]);
-			HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, GPIO_PIN_SET);
-		}
-		if(counter == 4){
-			InitMatrix();
-			DeactivateColumn(matrix_buffer[counter]);
-			HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, GPIO_PIN_SET);
-			}
-		if(counter == 5){
-			InitMatrix();
-			DeactivateColumn(matrix_buffer[counter]);
-		}
-		if(counter == 6){
-			InitMatrix();
-			DeactivateColumn(matrix_buffer[counter]);
-		}
-		if(counter == 7){
-			InitMatrix();
-		}
+void displayA(int counter){
 
 }
