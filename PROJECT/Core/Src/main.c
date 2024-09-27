@@ -97,16 +97,19 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   int counter = 0;
   int shift = 0;
+  int flag = 1;
   while (1)
   {
+	  flag = 1;
 	  int signal = (counter - shift) >= 0 ? counter - shift : shift - counter;
 	  displayA(signal);
 	  counter++;
 	  if(counter > 7){
 		  counter = 0;
-		  setTimer0(100);
+		  flag = 0;
 	  }
 	  HAL_Delay(1);
+	  if (flag == 0) setTimer0(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
