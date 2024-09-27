@@ -172,8 +172,16 @@ void update7SEG(int index){
 
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {0xFF00, 0xC000, 0xB700, 0x7700, 0x7700, 0xB700, 0xC000, 0xFF00};
-uint8_t column[8] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
+uint8_t matrix_buffer[8] = {
+		0b00111100, //   ****
+	    0b01100110, //  **  **
+	    0b11000011, // **    **
+	    0b11000011, // **    **
+	    0b11111111, // ********
+	    0b11000011, // **    **
+	    0b11000011, // **    **
+	    0b11000011  // **    **
+};
 
 void updateLEDMatrix(int index){
 	switch(index){
@@ -345,10 +353,38 @@ void InitMatrix(void){
 	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
 }
 
-void columnSweeper(uint8_t column){
-	GPIOA->ODR &= ~(1 << col);
+void displayA(int index) {
+    // Tắt tất cả các hàng trước khi cập nhật
+    HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
+    HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, SET);
+    HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, SET);
+    HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, SET);
+    HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, SET);
+    HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, SET);
+    HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, SET);
+    HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, SET);
+
+    // Bật hàng tương ứng với index
+    switch(index) {
+        case 0: HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, RESET); break;
+        case 1: HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, RESET); break;
+        case 2: HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, RESET); break;
+        case 3: HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, RESET); break;
+        case 4: HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, RESET); break;
+        case 5: HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, RESET); break;
+        case 6: HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, RESET); break;
+        case 7: HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET); break;
+    }
+
+    // Cập nhật các cột dựa trên mẫu chữ "A" với logic đảo ngược
+    uint8_t row_data = matrix_buffer[index];
+    HAL_GPIO_WritePin(COL0_GPIO_Port, COL0_Pin, (row_data & 0x01) ? SET : RESET);
+    HAL_GPIO_WritePin(COL1_GPIO_Port, COL1_Pin, (row_data & 0x02) ? SET : RESET);
+    HAL_GPIO_WritePin(COL2_GPIO_Port, COL2_Pin, (row_data & 0x04) ? SET : RESET);
+    HAL_GPIO_WritePin(COL3_GPIO_Port, COL3_Pin, (row_data & 0x08) ? SET : RESET);
+    HAL_GPIO_WritePin(COL4_GPIO_Port, COL4_Pin, (row_data & 0x10) ? SET : RESET);
+    HAL_GPIO_WritePin(COL5_GPIO_Port, COL5_Pin, (row_data & 0x20) ? SET : RESET);
+    HAL_GPIO_WritePin(COL6_GPIO_Port, COL6_Pin, (row_data & 0x40) ? SET : RESET);
+    HAL_GPIO_WritePin(COL7_GPIO_Port, COL7_Pin, (row_data & 0x80) ? SET : RESET);
 }
 
-void displayA(int counter){
-
-}
