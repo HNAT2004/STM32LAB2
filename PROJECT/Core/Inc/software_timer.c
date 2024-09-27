@@ -231,7 +231,7 @@ void animation_of_A(){
         for (int i = 0; i < MAX_LED_MATRIX; i++){
             int index = (i + shift) % MAX_LED_MATRIX;
             displayA(index);
-            HAL_Delay(50);
+            HAL_Delay(20);
         }
     }
 }
