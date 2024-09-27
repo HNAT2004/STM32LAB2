@@ -90,7 +90,7 @@ Discarded input sections
                 0x0000000000000000        0x4 ./Core/Inc/software_timer.o
  .text.updateLEDMatrix
                 0x0000000000000000      0x644 ./Core/Inc/software_timer.o
- .text.InitMatrix
+ .text.initMatrix
                 0x0000000000000000       0xcc ./Core/Inc/software_timer.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o

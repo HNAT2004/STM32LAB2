@@ -117,7 +117,7 @@ int main(void)
   	displayA(counter);
   	counter++;
   	if(counter > 7) counter = 0;
-  	HAL_Delay(100);
+  	HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
