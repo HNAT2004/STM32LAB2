@@ -227,12 +227,25 @@ void displayA(int index) {
 }
 
 void animation_of_A(){
-    for (int shift = 0; shift < MAX_LED_MATRIX; shift++){
-        for (int i = 0; i < MAX_LED_MATRIX; i++){
-            int index = (i + shift) % MAX_LED_MATRIX;
-            displayA(index);
-            HAL_Delay(20);
-        }
-    }
+	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, RESET);
+	HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, RESET);
+	HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, RESET);
+	HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, RESET);
+	HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, RESET);
+	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, RESET);
+	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, RESET);
+	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
+	for (int i = 0; i < MAX_LED_MATRIX; i++){
+	    uint8_t row_signal = matrix_buffer[index];
+	    HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_signal & 0x01) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_signal & 0x02) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, (row_signal & 0x04) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, (row_signal & 0x08) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, (row_signal & 0x10) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, (row_signal & 0x20) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, (row_signal & 0x40) ? SET : RESET);
+	    HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, (row_signal & 0x80) ? SET : RESET);
+	    HAL_Delay(500);
+	}
 }
 

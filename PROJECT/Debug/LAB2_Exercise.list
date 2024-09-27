@@ -384,8 +384,8 @@ void animation_of_A(){
             displayA(index);
  8000396:	6878      	ldr	r0, [r7, #4]
  8000398:	f7ff ff7c 	bl	8000294 <displayA>
-            HAL_Delay(50);
- 800039c:	2032      	movs	r0, #50	; 0x32
+            HAL_Delay(20);
+ 800039c:	2014      	movs	r0, #20
  800039e:	f000 fa29 	bl	80007f4 <HAL_Delay>
         for (int i = 0; i < MAX_LED_MATRIX; i++){
  80003a2:	68bb      	ldr	r3, [r7, #8]
