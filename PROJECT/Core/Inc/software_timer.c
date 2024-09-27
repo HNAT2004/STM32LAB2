@@ -209,9 +209,12 @@ void updateLEDMatrix(int index){
 	case 7:
 		HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
 		break;
+	default:
+		break;
+	}
 }
 
-void displayA(int index){
+void displayA(int index) {
 	updateLEDMatrix(index);
     uint8_t row_signal = matrix_buffer[index];
     HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_signal & 0x01) ? SET : RESET);
