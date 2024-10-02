@@ -5,8 +5,8 @@
  *      Author: ADMIN
  */
 
-#include "main.h"
-#include <timer.h>
+//#include "main.h"
+#include "timer.h"
 
 int timer_flag = 0;
 int counter = 0;
