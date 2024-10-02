@@ -96,8 +96,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(1);
-  setTimer1(1);
+  setTimer0(250);
+  setTimer1(1000);
   timer0_flag = 1;
   timer1_flag = 1;
   updateClockBuffer();
