@@ -1,2 +1,5 @@
-timer.c:12:6:setTimer	16	static
-timer.c:16:6:timerRun	4	static
+timer.c:19:6:setTimer1	16	static
+timer.c:33:6:timerRun	4	static
+timer.c:42:6:display7SEG	16	static
+timer.c:139:6:update7SEG	16	static
+timer.c:174:6:updateClockBuffer	8	static
