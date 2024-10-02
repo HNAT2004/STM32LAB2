@@ -6,7 +6,7 @@
  */
 
 #include "timer.h"
-//#include "main.h"
+#include "main.h"
 
 const int MAX_LED = 4;
 int index_led = 0;
