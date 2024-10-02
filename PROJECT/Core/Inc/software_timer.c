@@ -20,7 +20,7 @@ int timer1_counter = 0;
 int TIMER_CYCLE = 10;
 
 void setTimer0(int duration){
-	timer0_counter = duration;
+	timer0_counter = duration / TIMER_CYCLE;
 	timer0_flag = 0;
 }
 
@@ -44,9 +44,6 @@ void timer_run(void){
 			timer0_flag = 1;
 		}
 	}
-}
-
-void timer_run1(void){
 	if(timer1_counter > 0){
 		timer1_counter--;
 		if(timer1_counter <= 0){
@@ -54,7 +51,6 @@ void timer_run1(void){
 		}
 	}
 }
-
 
 void display7SEG(int number){
 	switch(number){
