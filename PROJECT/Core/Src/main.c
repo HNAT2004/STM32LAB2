@@ -98,6 +98,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer0(1);
   setTimer1(1);
+  timer0_flag = 1;
+  timer1_flag = 1;
   updateClockBuffer();
   while (1)
   {
