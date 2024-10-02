@@ -117,8 +117,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(10);
- 8000166:	200a      	movs	r0, #10
+  setTimer0(250);
+ 8000166:	20fa      	movs	r0, #250	; 0xfa
  8000168:	f000 f93e 	bl	80003e8 <setTimer0>
   setTimer1(1000);
  800016c:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
