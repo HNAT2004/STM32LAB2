@@ -9,11 +9,13 @@
 #define INC_SOFTWARE_TIMER_H_
 
 extern int timer0_flag;
+extern int timer1_flag;
 extern int hour;
 extern int minute;
 extern int second;
 
 void setTimer0(int x);
+void setTimer1(int y);
 
 int isTimerExpired(void);
 void timer_run(void);

@@ -14,11 +14,18 @@ int led_buffer[4] = {1, 2, 3, 4};
 
 int timer0_flag = 0;
 int timer0_counter = 0;
+int timer1_flag = 0;
+int timer1_counter = 0;
 int TIMER_CYCLE = 10;
 
 void setTimer0(int duration){
 	timer0_counter = duration / TIMER_CYCLE;
 	timer0_flag = 0;
+}
+
+void setTimer1(int duration){
+	timer1_counter = duration / TIMER_CYCLE;
+	timer1_flag = 0;
 }
 
 //int isTimerExpired(void){
@@ -29,7 +36,7 @@ void setTimer0(int duration){
 //	return 0;
 //}
 
-void timer_run(void){
+void timer_run0(void){
 	if(timer0_counter > 0){
 		timer0_counter--;
 		if(timer0_counter <= 0){
@@ -37,6 +44,16 @@ void timer_run(void){
 		}
 	}
 }
+
+void timer_run1(void){
+	if(timer1_counter > 0){
+		timer1_counter--;
+		if(timer1_counter <= 0){
+			timer1_flag = 1;
+		}
+	}
+}
+
 
 void display7SEG(int number){
 	switch(number){
