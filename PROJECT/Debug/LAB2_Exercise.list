@@ -853,8 +853,8 @@ int main(void)
  80006b0:	dd01      	ble.n	80006b6 <main+0x86>
  80006b2:	2300      	movs	r3, #0
  80006b4:	607b      	str	r3, [r7, #4]
-		  setTimer1(100);
- 80006b6:	2064      	movs	r0, #100	; 0x64
+		  setTimer1(25);
+ 80006b6:	2019      	movs	r0, #25
  80006b8:	f7ff fd48 	bl	800014c <setTimer1>
 	  }
 	  if (timer_flag_2 == 1){
@@ -862,8 +862,8 @@ int main(void)
  80006be:	681b      	ldr	r3, [r3, #0]
  80006c0:	2b01      	cmp	r3, #1
  80006c2:	d1e9      	bne.n	8000698 <main+0x68>
-		  setTimer2(100);
- 80006c4:	2064      	movs	r0, #100	; 0x64
+		  setTimer2(25);
+ 80006c4:	2019      	movs	r0, #25
  80006c6:	f7ff fd55 	bl	8000174 <setTimer2>
 		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
  80006ca:	2110      	movs	r1, #16

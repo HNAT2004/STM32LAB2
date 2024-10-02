@@ -113,10 +113,10 @@ int main(void)
 	  if (timer_flag_1 == 1){
 		  update7SEG(index_led++);
 		  if (index_led > 3) index_led = 0;
-		  setTimer1(100);
+		  setTimer1(25);
 	  }
 	  if (timer_flag_2 == 1){
-		  setTimer2(100);
+		  setTimer2(25);
 		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	  }
     /* USER CODE END WHILE */
