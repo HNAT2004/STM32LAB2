@@ -173,7 +173,6 @@ void update7SEG(int index){
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0xE7,0xDB,0xBD,0xBD,0x81,0xBD,0xBD,0xBD};
-uint8_t matrix_buffer_G[8] = {0x81,0x7E,0xFE,0xFE,0x0E,0x7E,0x7E,0x81};
 
 void updateLEDMatrix(int index){
 	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, SET);
@@ -217,7 +216,7 @@ void updateLEDMatrix(int index){
 
 void displayA(int index) {
 	updateLEDMatrix(index);
-    uint8_t row_signal = matrix_buffer_G[index];
+    uint8_t row_signal = matrix_buffer[index];
     HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, (row_signal & 0x01) ? SET : RESET);
     HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, (row_signal & 0x02) ? SET : RESET);
     HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, (row_signal & 0x04) ? SET : RESET);
