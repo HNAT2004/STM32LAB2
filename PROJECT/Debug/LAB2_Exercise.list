@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020014  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000888d  00000000  00000000  0002003d  2**0
+ 12 .debug_info   0000887b  00000000  00000000  0002003d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001655  00000000  00000000  000288ca  2**0
+ 13 .debug_abbrev 00001655  00000000  00000000  000288b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000978  00000000  00000000  00029f20  2**3
+ 14 .debug_aranges 00000978  00000000  00000000  00029f10  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008c0  00000000  00000000  0002a898  2**3
+ 15 .debug_ranges 000008c0  00000000  00000000  0002a888  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001651c  00000000  00000000  0002b158  2**0
+ 16 .debug_macro  0001651c  00000000  00000000  0002b148  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009ad1  00000000  00000000  00041674  2**0
+ 17 .debug_line   00009ad1  00000000  00000000  00041664  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000822ed  00000000  00000000  0004b145  2**0
+ 18 .debug_str    000822dd  00000000  00000000  0004b135  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cd432  2**0
+ 19 .comment      00000053  00000000  00000000  000cd412  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026b4  00000000  00000000  000cd488  2**2
+ 20 .debug_frame  000026b4  00000000  00000000  000cd468  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -541,10 +541,10 @@ void timer_run(void){
  800039c:	20000030 	.word	0x20000030
 
 080003a0 <updateLEDMatrix>:
+
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0xE7,0xDB,0xBD,0xBD,0x81,0xBD,0xBD,0xBD};
-uint8_t matrix_buffer_G[8] = {0x81,0x7E,0xFE,0xFE,0x0E,0x7E,0x7E,0x81};
 
 void updateLEDMatrix(int index){
  80003a0:	b580      	push	{r7, lr}
@@ -692,7 +692,7 @@ void displayA(int index) {
 	updateLEDMatrix(index);
  80004bc:	6878      	ldr	r0, [r7, #4]
  80004be:	f7ff ff6f 	bl	80003a0 <updateLEDMatrix>
-    uint8_t row_signal = matrix_buffer_G[index];
+    uint8_t row_signal = matrix_buffer[index];
  80004c2:	4a31      	ldr	r2, [pc, #196]	; (8000588 <displayA+0xd4>)
  80004c4:	687b      	ldr	r3, [r7, #4]
  80004c6:	4413      	add	r3, r2
