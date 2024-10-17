@@ -2596,9 +2596,9 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000020000000                _sdata = .
  *(.data)
  *(.data*)
- .data.matrix_buffer_F
+ .data.matrix_buffer_G
                 0x0000000020000000        0x8 ./Core/Src/software_timer.o
-                0x0000000020000000                matrix_buffer_F
+                0x0000000020000000                matrix_buffer_G
  .data.SystemCoreClock
                 0x0000000020000008        0x4 ./Core/Src/system_stm32f1xx.o
                 0x0000000020000008                SystemCoreClock
